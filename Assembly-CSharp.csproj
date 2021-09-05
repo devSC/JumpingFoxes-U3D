@@ -54,6 +54,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Assets/Scripts/PlayerControl.cs" />
+    <Compile Include="Assets/Scripts/CameraControl.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
