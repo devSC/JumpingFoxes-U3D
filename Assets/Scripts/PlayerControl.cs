@@ -19,6 +19,8 @@ public class PlayerControl : MonoBehaviour
     //狐狸碰撞区域
     public Collider2D collider2D;
 
+    public int cherry; //count
+
 
     // Start is called before the first frame update
     void Start()
@@ -83,6 +85,16 @@ public class PlayerControl : MonoBehaviour
         } else if (collider2D.IsTouchingLayers(ground)) { //当狐狸碰撞到地面
             animator.SetBool("falling", false); 
             animator.SetBool("idle", true);
+        }
+    }
+
+    //当碰到收集类的tag 如：樱桃等
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "Collection")
+        {
+            Destroy(collision.gameObject);
+            cherry += 1;
         }
     }
 }
