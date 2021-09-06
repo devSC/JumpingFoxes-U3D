@@ -1,8 +1,7 @@
 ﻿<Properties StartupConfiguration="{9ED17D36-E05B-2DEA-86FC-654BA4B9C805}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/CameraControl.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/PlayerControl.cs">
     <Files>
-      <File FileName="Assets/Scripts/PlayerControl.cs" Line="17" Column="28" />
-      <File FileName="Assets/CameraControl.cs" Line="17" Column="6" />
+      <File FileName="Assets/Scripts/PlayerControl.cs" Line="101" Column="13" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -10,7 +9,7 @@
           <Node name="JumpingFoxes-U3D" expanded="True">
             <Node name="Assets" expanded="True">
               <Node name="Scripts" expanded="True">
-                <Node name="CameraControl.cs" selected="True" />
+                <Node name="PlayerControl.cs" selected="True" />
               </Node>
             </Node>
           </Node>
@@ -20,7 +19,7 @@
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="3be9032f-724d-4b40-b5c2-0ad7eda64bb2" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="daaccfd3-21d1-4ea3-934d-979b82a7e9d3" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
