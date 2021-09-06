@@ -84,6 +84,13 @@ public class PlayerControl : MonoBehaviour
     //切换动画
     void SwitchAnimation()
     {
+
+        //fix 从高处掉落时，敌人无法消失的问题
+        if (rb.velocity.y < 0.1f && !collider2D.IsTouchingLayers(ground))
+        {
+            animator.SetBool("falling", true);
+        }
+
         //正在跳跃
         if (animator.GetBool("jumping"))
         {

@@ -1,7 +1,8 @@
 ﻿<Properties StartupConfiguration="{9ED17D36-E05B-2DEA-86FC-654BA4B9C805}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/PlayerControl.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/EnemiesFrog.cs">
     <Files>
-      <File FileName="Assets/Scripts/PlayerControl.cs" Line="101" Column="13" />
+      <File FileName="Assets/Scripts/PlayerControl.cs" Line="111" Column="54" />
+      <File FileName="Assets/Scripts/EnemiesFrog.cs" Line="8" Column="17" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -9,7 +10,7 @@
           <Node name="JumpingFoxes-U3D" expanded="True">
             <Node name="Assets" expanded="True">
               <Node name="Scripts" expanded="True">
-                <Node name="PlayerControl.cs" selected="True" />
+                <Node name="EnemiesFrog.cs" selected="True" />
               </Node>
             </Node>
           </Node>
