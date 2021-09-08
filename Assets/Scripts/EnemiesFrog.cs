@@ -2,13 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemiesFrog : MonoBehaviour
+public class EnemiesFrog : Enemy
 {
-    private Rigidbody2D rb;
-    private Animator animator;
-
-    //青蛙刚体
-    private Collider2D collider2D;
+    //private Rigidbody2D rb;
 
     //地面
     public LayerMask ground;
@@ -16,21 +12,24 @@ public class EnemiesFrog : MonoBehaviour
     public Transform leftPoint, rightPoint;
     public float speed, jumpForce;
 
-    public float leftX, rightX;
+    private float leftX, rightX;
     private bool faceLeft = true;
 
     // Start is called before the first frame update
-    void Start()
+    protected override void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
-        animator = GetComponent<Animator>();
-        collider2D = GetComponent<Collider2D>();
+        //调用父类
+        base.Start();
+
+        //rb = GetComponent<Rigidbody2D>();
+        
+        //collider2D = GetComponent<Collider2D>();
 
         //处理 left objcet 和 rightobject 跟随青蛙移动的问题
-
+        
         //1：
         //断绝父子关系，
-        transform.DetachChildren();
+        //transform.DetachChildren();
 
         //方法二
         leftX = leftPoint.position.x;

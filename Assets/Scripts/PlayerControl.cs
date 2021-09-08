@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerControl : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public class PlayerControl : MonoBehaviour
     //SerializeField 可将私有变量在 u3d 中看见对应组件
     [SerializeField]private Animator animator;
 
+    public AudioSource jumpAudioSource, hurtAudioSource, cherryAudio;
+
     public float speed;
     public float jumpForce;
 
@@ -19,10 +22,14 @@ public class PlayerControl : MonoBehaviour
 
     //狐狸碰撞区域
     public Collider2D collider2D;
+    public Collider2D headerCollider;
 
     public int cherry; //count
 
     public Text cherryNumberText;
+
+    //用来检查头部是否碰到墙体
+    public Transform cellingTransform;
 
     //受伤中，不需要执行滑动
     private bool isHurt;
@@ -55,11 +62,11 @@ public class PlayerControl : MonoBehaviour
         float horizontalMove = Input.GetAxis("Horizontal"); 
         float facedirection = Input.GetAxisRaw("Horizontal");
 
-        Debug.Log($"horizontalMove: {horizontalMove} facedirection: {facedirection}");
+        //Debug.Log($"horizontalMove: {horizontalMove} facedirection: {facedirection}");
         //角色移动
         if (horizontalMove != 0)
         {
-            rb.velocity = new Vector2(horizontalMove * speed * Time.deltaTime, rb.velocity.y); //Time.deltaTime 物理时间百分比
+            rb.velocity = new Vector2(horizontalMove * speed * Time.fixedDeltaTime, rb.velocity.y); //Time.deltaTime 物理时间百分比
             //调用动画，奔跑
             animator.SetFloat("running", Mathf.Abs(facedirection));
         }
@@ -74,11 +81,16 @@ public class PlayerControl : MonoBehaviour
         if (Input.GetButtonDown("Jump") && collider2D.IsTouchingLayers(ground)) {
             //给 Y 轴设置跳跃力
 
-            rb.velocity = new Vector2(rb.velocity.x, jumpForce * Time.deltaTime);
+            rb.velocity = new Vector2(rb.velocity.x, jumpForce * Time.fixedDeltaTime);
 
             //设置跳跃值
             animator.SetBool("jumping", true);
+
+            //播放跳跃动画
+            jumpAudioSource.Play();
         }
+
+        Crouch();
     }
 
     //切换动画
@@ -128,24 +140,43 @@ public class PlayerControl : MonoBehaviour
     {
         if (collision.tag == "Collection")
         {
+            cherryAudio.Play();
+
             Destroy(collision.gameObject);
             cherry += 1;
             cherryNumberText.text = cherry.ToString();
         }
+        else if (collision.tag == "Deadline")
+        {
+            //将所有的背景音乐停止
+            GetComponent<AudioSource>().enabled = false;
+            Invoke("Restart", 2f);
+        }
+    }
+
+
+    private void Restart()
+    {
+        //重置当前场景
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     //消灭敌人
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Enemies") {
+
+            //get enemy game object
+            Enemy enemy = collision.gameObject.GetComponent<Enemy>();
+
             if (animator.GetBool("falling")) {
-                Destroy(collision.gameObject);
 
-
+                enemy.JumpOn();
+                Debug.Log($"enemy: {enemy}");
                 //
                 //float scale = 0.4;
                 //踏上之后加个小跳
-                rb.velocity = new Vector2(rb.velocity.x, jumpForce * Time.deltaTime * 0.4f);
+                rb.velocity = new Vector2(rb.velocity.x, jumpForce * Time.fixedDeltaTime * 0.4f);
 
                 //设置跳跃值
                 animator.SetBool("jumping", true);
@@ -153,6 +184,9 @@ public class PlayerControl : MonoBehaviour
             else
             {
                 isHurt = true;
+
+                hurtAudioSource.Play();
+
                 animator.SetBool("hurting", true);
                 if (transform.position.x < collision.gameObject.transform.position.x)
                 {
@@ -166,7 +200,30 @@ public class PlayerControl : MonoBehaviour
                     rb.velocity = new Vector2(5, rb.velocity.y);
                 }
             }
+
+
         }
     }
+
+    private void Crouch()
+    {
+        //判断顶部是否有墙
+        if (!Physics2D.OverlapCircle(cellingTransform.position, 0.2f, ground))
+        {
+            if (Input.GetButton("Crouch"))
+            {
+                animator.SetBool("crouching", true);
+                headerCollider.enabled = false;
+            }
+            else 
+            {
+                animator.SetBool("crouching", false);
+                headerCollider.enabled = true;
+            }
+        }
+
+
+    }
+
 
 }

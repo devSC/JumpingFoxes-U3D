@@ -1,8 +1,11 @@
 ﻿<Properties StartupConfiguration="{9ED17D36-E05B-2DEA-86FC-654BA4B9C805}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/EnemiesFrog.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Menue.cs">
     <Files>
-      <File FileName="Assets/Scripts/PlayerControl.cs" Line="111" Column="54" />
-      <File FileName="Assets/Scripts/EnemiesFrog.cs" Line="8" Column="17" />
+      <File FileName="Assets/Scripts/PlayerControl.cs" Line="154" Column="10" />
+      <File FileName="Assets/Scripts/EnemiesFrog.cs" />
+      <File FileName="Assets/Scripts/EnemyEagle.cs" />
+      <File FileName="Assets/Scripts/EnterHouse.cs" Line="14" Column="39" />
+      <File FileName="Assets/Scripts/Menue.cs" Line="7" Column="5" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -10,7 +13,7 @@
           <Node name="JumpingFoxes-U3D" expanded="True">
             <Node name="Assets" expanded="True">
               <Node name="Scripts" expanded="True">
-                <Node name="EnemiesFrog.cs" selected="True" />
+                <Node name="Menue.cs" selected="True" />
               </Node>
             </Node>
           </Node>
@@ -20,7 +23,7 @@
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="daaccfd3-21d1-4ea3-934d-979b82a7e9d3" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="55e5cca9-d898-4a18-95a2-5d56ccacc498" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
