@@ -14,10 +14,16 @@ public class CameraControl : MonoBehaviour
         
     }
 
-    // Update is called once per frame
-    void Update()
+    private void FixedUpdate()
     {
         //设置摄像头，跟踪狐狸位置
         transform.position = new Vector3(player.position.x, 0, -10f);
     }
+
+    // Update is called once per frame
+    //void Update()
+    //{
+    //    //设置摄像头，跟踪狐狸位置
+    //    transform.position = new Vector3(player.position.x, 0, -10f);
+    //}
 }

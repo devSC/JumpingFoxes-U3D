@@ -1,11 +1,13 @@
 ﻿<Properties StartupConfiguration="{9ED17D36-E05B-2DEA-86FC-654BA4B9C805}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Menue.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Parallax.cs">
     <Files>
       <File FileName="Assets/Scripts/PlayerControl.cs" Line="154" Column="10" />
       <File FileName="Assets/Scripts/EnemiesFrog.cs" />
       <File FileName="Assets/Scripts/EnemyEagle.cs" />
       <File FileName="Assets/Scripts/EnterHouse.cs" Line="14" Column="39" />
-      <File FileName="Assets/Scripts/Menue.cs" Line="7" Column="5" />
+      <File FileName="Assets/Scripts/Menue.cs" Line="20" Column="41" />
+      <File FileName="Assets/Scripts/CameraControl.cs" Line="18" Column="6" />
+      <File FileName="Assets/Scripts/Parallax.cs" Line="7" Column="14" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -13,7 +15,7 @@
           <Node name="JumpingFoxes-U3D" expanded="True">
             <Node name="Assets" expanded="True">
               <Node name="Scripts" expanded="True">
-                <Node name="Menue.cs" selected="True" />
+                <Node name="Parallax.cs" selected="True" />
               </Node>
             </Node>
           </Node>
